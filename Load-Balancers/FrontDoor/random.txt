@@ -1,0 +1,96 @@
+resource "azurerm_resource_group" "net-rg2" {
+  name     = "net-rg2"
+  location = "eastus"
+}
+
+resource "azurerm_virtual_network" "net-rg2" {
+  name                = "vnet-3"
+  address_space       = ["10.0.0.0/16"]
+  location            = azurerm_resource_group.net-rg2.location
+  resource_group_name = azurerm_resource_group.net-rg2.name
+}
+
+resource "azurerm_subnet" "frontend-subnet" {
+  name                 = "frontend-subnet"
+  resource_group_name  = azurerm_resource_group.net-rg2.name
+  virtual_network_name = azurerm_virtual_network.net-rg2.name
+  address_prefixes     = ["10.0.1.0/24"]
+}
+
+resource "azurerm_app_service_plan" "tor-app" {
+    name = "tor-app"
+    location           = azurerm_resource_group.net-rg2.location
+    resource_group_name  = azurerm_resource_group.net-rg2.name
+
+    sku {
+    tier = "Standard"
+    size = "S1"
+    }
+}
+
+resource "azurerm_app_service" "tor-app1" {
+  name                = "tor-app1"
+  location            = azurerm_resource_group.net-rg2.location
+  resource_group_name  = azurerm_resource_group.net-rg2.name  
+  app_service_plan_id = azurerm_app_service_plan.tor-app.id
+}
+
+resource "azurerm_app_service" "tor-app2" {
+  name                = "tor-app2"
+  location            = azurerm_resource_group.net-rg2.location
+  resource_group_name  = azurerm_resource_group.net-rg2.name
+  app_service_plan_id = azurerm_app_service_plan.tor-app.id
+}
+
+resource "azurerm_frontdoor" "az-frontdoor" {
+  name                = "az-frontdoor"
+  resource_group_name = azurerm_resource_group.net-rg2.name
+  routing_rule {
+    name               = "Rule1"
+    accepted_protocols = ["Http", "Https"]
+    patterns_to_match  = ["/*"]
+    frontend_endpoints = ["tor-app1", "tor-app2"]
+    forwarding_configuration {
+      forwarding_protocol = "MatchRequest"
+      backend_pool_name   = "backend-pool"
+    }
+  }
+
+  backend_pool_load_balancing {
+    name = "backend-pool-lb"
+  }
+
+  backend_pool_health_probe {
+    name = "backend-pool-health-probe"
+  }
+
+  backend_pool {
+    name = "backend-pool"
+    backend {
+      host_header = "tor-app1.azurefd.net"
+      address     = "tor-app1.azurefd.net"
+      http_port   = 80
+      https_port  = 443
+    }
+
+    backend {
+      host_header = "tor-app2.azurefd.net"  
+      address     = "tor-app2.azurefd.net"
+      http_port   = 80
+      https_port  = 443
+    }
+
+    load_balancing_name = "backend-pool-lb"
+    health_probe_name   = "backend-pool-health-probe"
+  }
+
+  frontend_endpoint {
+    name      = "tor-app1"
+    host_name = "tor-app1.azurefd.net"
+  }
+
+  frontend_endpoint {
+    name      = "tor-app2"
+    host_name = "tor-app2.azurefd.net"
+  }
+}
