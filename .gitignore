@@ -11,9 +11,13 @@ crash.log
 stuff.txt
 AzureAD/variables.tf
 AKS/variables.tf
+<<<<<<< HEAD
 Databases/Postgresql/terraform-provider-azurerm_v3.40.0_x5.exe
 Databases/Postgresql/variables.tf
 Databases/CosmosDB/variables.tf
+=======
+Databases/variables.tf
+>>>>>>> cf6b32bb20a2825eed6caa1f02ccc44c079c1d82
 Load-Balancers/Azure-Load-Balancer/variables.tf
 Load-Balancers/FrontDoor/random.txt
 Load-Balancers/Traffic-Manager/variables.tf
