@@ -7,27 +7,17 @@
 
 # Crash log files
 crash.log
+
 stuff.txt
+AzureAD/variables.tf
 AKS/variables.tf
-AKS/terraform.tfstate
-ASK/terraform.tfstate.backup
-Databases/variables.tf
-Databases/terraform.tfstate
-Databases/terraform.tfstate.backup
-Load-Balancers/App-Gateway/terraform.tfstate
-Load-Balancers/App-Gateway/terraform.tfstate.backup
+Databases/Postgresql/terraform-provider-azurerm_v3.40.0_x5.exe
+Databases/Postgresql/variables.tf
+Databases/CosmosDB/variables.tf
 Load-Balancers/Azure-Load-Balancer/variables.tf
-Load-Balancers/Azure-Load-Balancer/terraform.tfstate
-Load-Balancers/Azure-Load-Balancer/terraform.tfstate.backup
 Load-Balancers/FrontDoor/random.txt
-Load-Balancers/FrontDoor/terraform.tfstate
-Load-Balancers/FrontDoor/terraform.tfstate.backup
 Load-Balancers/Traffic-Manager/variables.tf
-Load-Balancers/Traffic-Manager/terraform.tfstate
-Load-Balancers/Traffic-Manager/terraform.tfstate.backup
 Virtual-Machine/variables.tf
-Virtual-Machine/terraform.tfstate
-Virtual-Machine/terraform.tfstate.backup
 # Ignore any .tfvars files that are generated automatically for each Terraform run. Most
 # .tfvars files are managed as part of configuration and so should be included in
 # version control.

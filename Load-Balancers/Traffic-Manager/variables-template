@@ -1,18 +1,21 @@
+#rename this file to "variable.tf" 
+
+
 variable "computer_name" {
   type        = string
-  default     = "ubuntu-vm"
+  default     = ""
   description = "name of virtual machine"
 }
 
 variable "admin_username" {
   type        = string
-  default     = "victor"
+  default     = ""
   description = "name of admin user for the virtual machine"
 }
 
 variable "admin_ssh_key_path" {
   type        = string
-  default     = "ubuntu-vm"
+  default     = ""
   description = "name of virtual machine"
 }
 

@@ -23,8 +23,8 @@ module "k8s" {
   source = "Azure/aks/azurerm"
 
   cluster_name                      = var.cluster_name
-  resource_group_name               = azurerm_resource_group.Kubernetes-Resource-Group.name
-  location                          = azurerm_resource_group.Kubernetes-Resource-Group.location
+  resource_group_name               = azurerm_resource_group.KubernetesResourceGroup.name
+  location                          = azurerm_resource_group.KubernetesResourceGroup.location
   prefix                            = var.prefix
   agents_count                      = var.agents_count
   admin_username                    = var.admin_username

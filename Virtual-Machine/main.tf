@@ -44,9 +44,9 @@ resource "azurerm_network_interface" "NIC-1" {
 
   ip_configuration {
     name                          = var.ip_configuration
-    subnet_id                     = azurerm_subnet.subnet-1.id
+    subnet_id                     = azurerm_subnet.Subnet-1.id
     private_ip_address_allocation = "Dynamic"
-    public_ip_address_id          = azurerm_public_ip.pub-ip-1.id
+    public_ip_address_id          = azurerm_public_ip.PublicIP-1.id
   }
 }
 
@@ -86,9 +86,9 @@ resource "azurerm_storage_account" "storageaccountgerrome" {
 
 resource "azurerm_linux_virtual_machine" "Dev-Server" {
   name                  = var.linux_virtual_machine_name
-  location              = azurerm_resource_group.dev-rg.location
-  resource_group_name   = azurerm_resource_group.dev-rg.name
-  network_interface_ids = [azurerm_network_interface.nic-1.id]
+  location              = azurerm_resource_group.VicResourceGroup.location
+  resource_group_name   = azurerm_resource_group.VicResourceGroup.name
+  network_interface_ids = [azurerm_network_interface.NIC-1.id]
   size                  = "Standard_B1s"
   computer_name         = var.computer_name
   admin_username        = var.admin_username

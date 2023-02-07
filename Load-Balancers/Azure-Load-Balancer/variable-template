@@ -1,3 +1,5 @@
+#rename this file to "variable.tf" 
+
 variable "computer_name_prefix" {
   type        = string
   default     = ""

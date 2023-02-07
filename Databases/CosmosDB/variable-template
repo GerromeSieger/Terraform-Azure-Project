@@ -1,0 +1,5 @@
+#rename this file to "variable.tf" 
+
+variable "object_id" {
+  default = ""
+}

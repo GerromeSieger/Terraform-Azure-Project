@@ -1,0 +1,11 @@
+rename this file to "variable.tf"
+
+variable "messi_password" {
+  type        = string
+  default     = ""
+}
+
+variable "neymar_password" {
+  type        = string
+  default     = ""
+}

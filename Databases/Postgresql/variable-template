@@ -1,8 +1,10 @@
+#rename this file to "variable.tf" 
+
 
 variable "administrator_login_password" {
-    default = ""
+  default = ""
 }
 
 variable "administrator_login" {
-    default = ""
+  default = ""
 }

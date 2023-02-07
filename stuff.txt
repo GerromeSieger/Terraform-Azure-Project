@@ -1,2 +1,0 @@
-aks-client = MRB8Q~GRI_nL6eYnqJkpKdzJ2BucqyzzpsvYibmD
-aks-server = -wI8Q~kw9HFozzN8cby_7bmrxGZfBmZzVPo2XbpZ
