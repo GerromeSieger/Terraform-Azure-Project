@@ -20,4 +20,5 @@ In this project there are scripts that do the following:
 
 9. Configure IAM as code by creating two users in Azure Active directory and two groups and enabling dynamic membership to the two groups for the two users. Also creating a conditional access policy for one of the created users. (Can be found in the AzureAD folder)
 
+10. Set us a virtual network peering that connects two virtual networks.
 
