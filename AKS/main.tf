@@ -28,7 +28,11 @@ module "k8s" {
   prefix                            = var.prefix
   agents_count                      = var.agents_count
   admin_username                    = var.admin_username
-  role_based_access_control_enabled = false  
+  role_based_access_control_enabled = true
+  rbac_aad_client_app_id            = var.rbac_aad_client_app_id
+  rbac_aad_server_app_id            = var.rbac_aad_server_app_id 
+  rbac_aad_server_app_secret        = var.rbac_aad_server_app_secret
+  rbac_aad_tenant_id                = var.rbac_aad_tenant_id  
 
 }
 
