@@ -1,8 +1,8 @@
 # Terraform-Azure-Project
-Terraform scripts that provision Azure resources.
-In this project there are scripts that do the following:
+Terraform files that provision Azure resources.
+In this project there are files that do the following:
 
-1. Deploy an Azure virtual machine, a virtual network, a subnet, a network interface and a network security group allowing inbound only RDP requests (Can be found in the Virtual-Machine folder)
+1. Deploy an Azure virtual machine, a virtual network, a subnet, a network interface and a network security group allowing only inbound SSH traffic (Can be found in the Virtual-Machine folder)
 
 2. Deploy a Kubernetes cluster with two nodes and enable role based access control. This is done a module that also creates the other resources associated with the kubernetes cluster (Can be found in the AKS folder)
 
@@ -22,3 +22,13 @@ In this project there are scripts that do the following:
 
 10. Set us a virtual network peering that connects two virtual networks.
 
+
+Terraform commands:
+
+- terraform init
+
+- terraform validate
+
+- terraform plan -out=tfplan
+
+- terraform apply "tfplan"
